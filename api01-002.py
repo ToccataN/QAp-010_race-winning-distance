@@ -2,24 +2,22 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 
-import F9_master as fMaster
+import F1_mainScript as mainScript
 # import datetime
 import json
 
 app = Flask(__name__)
 CORS(app)
 
-# Defined endpoint at /getq
-@app.route('/getq')
+# Defined endpoint at /getq002
+@app.route('/getq002')
 
 def get_question():
     
-    # subject, sou, and difficulty are search string arguments set-up for API
-    subject = request.args.get('subject')
-    sou = request.args.get('sou')
-    diffString = request.args.get('difficulty')
+    # Set number of runners
+    numberOfracers = 4
     
-    echoback = fMaster.problemGen(subject, sou, diffString)
+    echoback = mainScript.raceProblem(numberOfracers)
     returnString = json.dumps(echoback)
     
     return returnString

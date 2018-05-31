@@ -1,10 +1,9 @@
 import json
-import F9_master as fMaster
+import F1_mainScript as mainScript
 
 # subject, sou, and difficulty are search string arguments set-up for API
-subject = 'mechanics'
-sou = 'SI'
-diffString = 'Simple'
+numberOfracers = 4
 
-echoback = fMaster.problemGen(subject, sou, diffString)
-returnString = json.dumps(echoback)
+echoback = mainScript.raceProblem(numberOfracers)
+print(echoback)
+# returnString = json.dumps(echoback)
