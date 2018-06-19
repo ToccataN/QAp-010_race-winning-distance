@@ -10,6 +10,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Defined endpoint at /getq002
+
 @app.route('/')
 
 def get_question():
@@ -21,6 +22,7 @@ def get_question():
     returnString = json.dumps(echoback)
 
     print(returnString)
+    
     return returnString
 
 if __name__ == '__main__':
