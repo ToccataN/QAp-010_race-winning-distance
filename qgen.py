@@ -15,11 +15,11 @@ CORS(app)
 def get_question():
 
     # Set number of runners
-    #numberOfracers = 4
+    numberOfracers = 4
 
-    #echoback = mainScript.raceProblem(numberOfracers)
-    #returnString = json.dumps(echoback)
-    returnString = "Hi there"
+    echoback = mainScript.raceProblem(numberOfracers)
+    returnString = json.dumps(echoback)
+
     print(returnString)
     return returnString
 
