@@ -1,5 +1,4 @@
 import itertools
-import math
 import random
 import timeit
 import numpy as np
@@ -14,22 +13,22 @@ def raceProblem(numberOfracers):
     # Logic of problem presumes runners always run same speed in each race
     # Logic works currently for pairings only (lanes = 2)
     # Since each runner runs twice (including final race), and there are two lanes, this means total races, including final, is also = numberOfracers
-    # "Heats" refers to the races in which results already in.  Final race is the race for which winning distance is formed as question
+    # "Heats" refers to the races in which results already in, referred to as "preliminary races" in the question text.
+    # Final race is the race for which winning distance is formed as question
     numberOfracers = 4
 
-    # Must be only 2-person races for now based on how the logic works for selecting winner of each race
+    # Must be only 2-person races, i.e. lanes = 2, for now based on how the logic works for selecting winner of each race
     lanes = 2
     maxRaceDistance = 32                    # multiplied by 100 in actual meters
 
-    racerNames = namesList[:numberOfracers]
+    racerNames = namesList[:numberOfracers] # deliberately set-up to provide alphabetical a, b, c names for time being
     print(racerNames)
 
-    # raceCount = math.factorial(numberOfracers) / math.factorial(numberOfracers - lanes) / math.factorial(lanes)
-    raceCount = 2 * numberOfracers / lanes # DUBIOUS!!, but generally is how things would work, presuming structure of assumptions is such that returns integer.
+    raceCount = 2 * numberOfracers / lanes # DUBIOUS!!, but generally is how things (roughly) would work, presuming structure of assumptions is such that returns integer.
     raceCount = int(raceCount)
     heatCount = raceCount - 1
 
-    # Set up nTuple of 'racer registration numbers' from 1 to number of racers
+    # Set up nTuple of 'racer registration numbers', simple sequenced tuple of integers from 1 to number of racers
     racerNumlist = []
     for i in range(numberOfracers):
         racerNumlist.append(i + 1)
@@ -37,7 +36,8 @@ def raceProblem(numberOfracers):
     print("Racers: ", racers)
 
     # Set random selection of who beats whom in the (prelim) heats.
-    # speedOrder set for final race, but note that this is actually derived by win distance parameters from heats, NOT by this combination.
+    # speedOrder is set here for final race, but this is essentially ignored since the race order in the final race
+    # must be derived by win distance parameters from heats, NOT by this combination.
     speedOrder = racerNumlist[:]
     random.shuffle(speedOrder)
     print("speedOrder:", speedOrder)
@@ -48,18 +48,19 @@ def raceProblem(numberOfracers):
         raceTuple = (i + 1, i + 2)
         racePairs.append(raceTuple)
 
-    # Last pair simply hard-wired as final racer and first race together
+    # Last pair simply hard-wired as final racer and first racer paired up
     finalPair = (numberOfracers, 1)
     racePairs.append(finalPair)
 
-    # Actual race pairs then determined from shuffle
+    # Actual race pairs then determined from shuffle to provide some further variability between pairings in heats vs. final race
     random.shuffle(racePairs)
     print("racePairs: ", racePairs)
 
+    # resultPairs is now the list that is sensitive to who should be winning (in the heats) based on speedOrder
     resultPairs = []
     for pair in racePairs:
     
-        # Testing position in speedOrder sequence to determine adding tuples such that winner listed first when raceCombo constructed
+        # Testing position in speedOrder sequence to determine adding tuples such that winner listed first when resultPairs constructed
         if speedOrder.index(pair[0]) < speedOrder.index(pair[1]):
             resultPair = pair
         else:
@@ -72,7 +73,7 @@ def raceProblem(numberOfracers):
     winDistances = []
 
     # This loop sets up random assumptions for problem generation
-    # Note that a winning distance for final race is generated, as we do need race distance, but it is ignored by logic
+    # Note that a winning distance for final race is generated, since it 'comes along with' race distance, which we DO need for final race
     for i in range(raceCount):
         currentRaceDistance = 100 * random.randint(1, maxRaceDistance)
         currentWinDistance = random.randint(1, round(currentRaceDistance / 4))
@@ -88,7 +89,8 @@ def raceProblem(numberOfracers):
     targetLambdas[finalPair[1] - 1] = -1
     print("TargetLambdas: ", targetLambdas)
 
-    # This loop does a brute force check through all combinations of "flip multipliers" to determine which combination yields the 'cancelling out' consistent with targetLambdas
+    # This loop does a brute force check through all combinations of "flip multipliers" to determine which combination yields
+    # the 'cancelling out' consistent with targetLambdas
     i = 0
     flipMultsIter = itertools.product((1, -1), repeat = heatCount)
     for flipMult in flipMultsIter:
@@ -141,17 +143,18 @@ def raceProblem(numberOfracers):
     print(finalResultPair[0], " beats ", finalResultPair[1], " by ", finalWinDistance, " meters.  resultSpeedRatio = ", resultSpeedRatio)
 
     # Text generation of/for the text that sets the assumptions related to results from the 'heats'
-    assumptionText = []
+    informationText = []
+    informationText.append("You have the following results from preliminary races:")
     i = 0
     for pair in resultPairs[:-1]:
         winner = namesList[pair[0] - 1]
         loser = namesList[pair[1] - 1]
-        statement = winner + " can beat " + loser + " by " + str(winDistances[i]) + " meters in a " + str(raceDistances[i]) + "-meter race."
+        statement = winner + " beats " + loser + " by " + str(winDistances[i]) + " meters in a " + str(raceDistances[i]) + "-meter race."
         # print(statement)
-        assumptionText.append(statement)
+        informationText.append(statement)
         i = i + 1
 
-    print(assumptionText)
+    print(informationText)
 
     winner = namesList[finalResultPair[0] - 1]
     loser = namesList[finalResultPair[1] - 1]
@@ -163,6 +166,6 @@ def raceProblem(numberOfracers):
     answerText = "Answer: " + winner + " will win by " + str(round(finalWinDistance)) + " meters.  (Rounded to nearest meter)"
     print(answerText)
 
-    echoBack = chad.buildEchoback(assumptionText, questionText, round(finalWinDistance), answerText)
+    echoBack = chad.buildEchoback(informationText, questionText, round(finalWinDistance))
 
     return echoBack
