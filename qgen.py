@@ -13,13 +13,13 @@ CORS(app)
 @app.route('/getq002')
 
 def get_question():
-    
+
     # Set number of runners
-    numberOfracers = 4
-    
-    echoback = mainScript.raceProblem(numberOfracers)
-    returnString = json.dumps(echoback)
-    
+    #numberOfracers = 4
+
+    #echoback = mainScript.raceProblem(numberOfracers)
+    #returnString = json.dumps(echoback)
+    returnString = 'Hi there'
     return returnString
 
 if __name__ == '__main__':
