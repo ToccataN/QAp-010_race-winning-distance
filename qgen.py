@@ -19,7 +19,7 @@ def get_question():
 
     #echoback = mainScript.raceProblem(numberOfracers)
     #returnString = json.dumps(echoback)
-    returnString = 'Hi there'
+    returnString = json.dumps('Hi there')
     return returnString
 
 if __name__ == '__main__':
