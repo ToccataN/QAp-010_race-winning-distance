@@ -10,7 +10,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Defined endpoint at /getq002
-@app.route('/getq002')
+@app.route('/')
 
 def get_question():
 
