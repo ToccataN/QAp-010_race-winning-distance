@@ -9,15 +9,18 @@ app = Flask(__name__)
 CORS(app)
 
 # Defined endpoint at /getq002
-@app.route('/getq002')
+
+@app.route('/')
 
 def get_question():
-    
+
     # Set number of runners
     numberOfracers = 4
-    
+
     echoback = mainScript.raceProblem(numberOfracers)
     returnString = json.dumps(echoback)
+
+    print(returnString)
     
     return returnString
 
