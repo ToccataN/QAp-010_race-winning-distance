@@ -7,7 +7,13 @@ import chad
 
 def raceProblem(numberOfracers):
 
-    namesList = ['Andrew', 'Brittany', 'Carson', 'Derlene', 'Edward', 'Fritz']
+#    namesList = ['Andrew', 'Brittany', 'Carson', 'Derlene', 'Edward', 'Fritz']
+    namesList = ['Astrid', 'Christian', 'Freya', 'Ingeborg', 'Mads', 'Poul']
+
+# Danish girls: Trine, Astrid, Rikke, Silja, Ingeborg, Alberte, Luna, Freya, Mathilde, Signe, Amalie, Milla, Ella
+# Danish boys: Frederik, Rasmus, Magnus, Ulrich, Andreas, Asger, Bertram, Poul, Henrik, Niklas, Gustav, Mads, Christian, Mikkel, Nicolai, Emil, Thanush, Sigurd, Witsel, Thaifred
+
+
 
     # Maximum of six names
     # Logic of problem presumes runners always run same speed in each race
