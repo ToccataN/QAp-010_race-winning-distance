@@ -18,9 +18,9 @@ def get_question():
     # Set number of runners
     numberOfracers = 4
     if 'pid' in request.args:
-      pass echoback = mainScript.raceProblem(numberOfracers)
+       echoback = mainScript.raceProblem(numberOfracers)
     else
-      pass echoback = mainScript.raceProblem(2)
+       echoback = mainScript.raceProblem(2)
 
     returnString = json.dumps(echoback)
 
