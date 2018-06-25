@@ -17,13 +17,16 @@ def get_question():
 
     # Set number of runners
     numberOfracers = 4
+    pid = request.args.get('pid')
+
+    if pid is None:
+      numberOfracers = 2
 
     echoback = mainScript.raceProblem(numberOfracers)
 
 
     returnString = json.dumps(echoback)
 
-    print(returnString)
 
     return returnString
 
