@@ -20,7 +20,7 @@ def get_question():
     if 'pid' in request.args
       echoback = mainScript.raceProblem(numberOfracers)
     else
-      echoback = {'information': 'you need to enter a parameter value'}
+      echoback = mainScript.raceProblem(2)
 
     returnString = json.dumps(echoback)
 
