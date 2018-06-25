@@ -15,7 +15,7 @@ def raceProblem(numberOfracers):
     # Since each runner runs twice (including final race), and there are two lanes, this means total races, including final, is also = numberOfracers
     # "Heats" refers to the races in which results already in, referred to as "preliminary races" in the question text.
     # Final race is the race for which winning distance is formed as question
-    numberOfracers = 4
+
 
     # Must be only 2-person races, i.e. lanes = 2, for now based on how the logic works for selecting winner of each race
     lanes = 2
@@ -59,7 +59,7 @@ def raceProblem(numberOfracers):
     # resultPairs is now the list that is sensitive to who should be winning (in the heats) based on speedOrder
     resultPairs = []
     for pair in racePairs:
-    
+
         # Testing position in speedOrder sequence to determine adding tuples such that winner listed first when resultPairs constructed
         if speedOrder.index(pair[0]) < speedOrder.index(pair[1]):
             resultPair = pair
@@ -100,7 +100,7 @@ def raceProblem(numberOfracers):
         cumLambdas = [0] * numberOfracers
         runnerLambdas = np.zeros(( numberOfracers, heatCount))
         for racer in racerNumlist:
-    
+
             heatNo = 0
             for heatResult in resultPairs[:-1]:
                 heatNo = heatNo + 1
@@ -111,11 +111,11 @@ def raceProblem(numberOfracers):
                         heatLam = 1
                     else:
                         heatLam = -1
-        
+
                 runnerLambdas[racer - 1, heatNo - 1] = heatLam
                 cumLambdas[racer - 1] = cumLambdas[racer - 1] + flipMult[heatNo - 1] * heatLam
 
-        print("cumLambdas: ", cumLambdas, " for flipMult = ", flipMult)       
+        print("cumLambdas: ", cumLambdas, " for flipMult = ", flipMult)
         if cumLambdas == targetLambdas:
             flipAnswer = flipMult
             print("flipAnswer = ", flipAnswer)

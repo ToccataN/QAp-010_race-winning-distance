@@ -16,11 +16,12 @@ CORS(app)
 def get_question():
 
     # Set number of runners
-    numberOfracers = 4
     pid = request.args.get('pid')
 
     if pid is None:
       numberOfracers = 2
+    else
+      numberOfracers = 4
 
     echoback = mainScript.raceProblem(numberOfracers)
 
