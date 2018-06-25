@@ -17,12 +17,15 @@ def get_question():
 
     # Set number of runners
     numberOfracers = 4
-
-    echoback = mainScript.raceProblem(numberOfracers)
+    if 'pid' in request.args
+      echoback = mainScript.raceProblem(numberOfracers)
+    else
+      echoback = {'information': ['you need to enter a parameter value']}
+      
     returnString = json.dumps(echoback)
 
     print(returnString)
-    
+
     return returnString
 
 if __name__ == '__main__':
