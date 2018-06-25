@@ -16,7 +16,7 @@ def raceProblem(numberOfracers):
     # "Heats" refers to the races in which results already in, referred to as "preliminary races" in the question text.
     # Final race is the race for which winning distance is formed as question
 
-
+    #numberOfracers = 4
     # Must be only 2-person races, i.e. lanes = 2, for now based on how the logic works for selecting winner of each race
     lanes = 2
     maxRaceDistance = 32                    # multiplied by 100 in actual meters
