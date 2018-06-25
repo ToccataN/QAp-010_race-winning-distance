@@ -20,7 +20,7 @@ def get_question():
 
     if pid is None:
       numberOfracers = 2
-    else
+    else:
       numberOfracers = 4
 
     echoback = mainScript.raceProblem(numberOfracers)
