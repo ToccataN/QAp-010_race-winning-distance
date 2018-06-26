@@ -18,8 +18,8 @@ def get_question():
     pid = request.args.get('pid')
 
     if pid == 'a001':
-        races = request.args.get('races')
-        lanes = request.args.get('lanes')
+        races = int(request.args.get('races'))
+        lanes = int(request.args.get('lanes'))
         country = request.args.get('country')
         echoback = a001.raceProblem(races, lanes, country)
 

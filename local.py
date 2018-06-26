@@ -1,8 +1,8 @@
 import json
 import a001_mainScript as a001
 
-races = 3
-lanes = 2
+races = int('3')
+lanes = int('2')
 country = 'DK'
 
 echoback = a001.raceProblem(races, lanes, country)
