@@ -16,11 +16,17 @@ def get_question():
 
     # Determine which problem is being called
     pid = request.args.get('pid')
+    if pid is None:
+        pid = 'a001'
 
     if pid == 'a001':
         races = int(request.args.get('races'))
         lanes = int(request.args.get('lanes'))
         country = request.args.get('country')
+
+        if races is None: races = 4
+        if lanes != 2: lanes = 2
+        if country is None: country = 'DK'
         echoback = a001.raceProblem(races, lanes, country)
 
     returnString = json.dumps(echoback)
