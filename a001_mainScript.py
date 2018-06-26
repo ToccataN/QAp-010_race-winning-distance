@@ -5,7 +5,7 @@ import numpy as np
 
 import chad
 
-def raceProblem(numberOfracers):
+def raceProblem(races, lanes, country):
 
 #    namesList = ['Andrew', 'Brittany', 'Carson', 'Derlene', 'Edward', 'Fritz']
     namesList = ['Astrid', 'Christian', 'Freya', 'Ingeborg', 'Mads', 'Poul']
@@ -22,17 +22,18 @@ def raceProblem(numberOfracers):
     # "Heats" refers to the races in which results already in, referred to as "preliminary races" in the question text.
     # Final race is the race for which winning distance is formed as question
 
-    #numberOfracers = 4
+    # racesCount = 2 * numberOfracers / lanes # DUBIOUS!!, but generally is how things (roughly) would work, presuming structure of assumptions is such that returns integer.
+    # races = int(raceCount)
+    
     # Must be only 2-person races, i.e. lanes = 2, for now based on how the logic works for selecting winner of each race
-    lanes = 2
+    # lanes = 2
+    numberOfracers = races                  # This works only when lanes = 2, as each racer needs to be in two races
     maxRaceDistance = 32                    # multiplied by 100 in actual meters
 
     racerNames = namesList[:numberOfracers] # deliberately set-up to provide alphabetical a, b, c names for time being
     print(racerNames)
 
-    raceCount = 2 * numberOfracers / lanes # DUBIOUS!!, but generally is how things (roughly) would work, presuming structure of assumptions is such that returns integer.
-    raceCount = int(raceCount)
-    heatCount = raceCount - 1
+    heatCount = races - 1
 
     # Set up nTuple of 'racer registration numbers', simple sequenced tuple of integers from 1 to number of racers
     racerNumlist = []
@@ -80,7 +81,7 @@ def raceProblem(numberOfracers):
 
     # This loop sets up random assumptions for problem generation
     # Note that a winning distance for final race is generated, since it 'comes along with' race distance, which we DO need for final race
-    for i in range(raceCount):
+    for i in range(races):
         currentRaceDistance = 100 * random.randint(1, maxRaceDistance)
         currentWinDistance = random.randint(1, round(currentRaceDistance / 4))
         raceDistances.append(currentRaceDistance)
@@ -165,7 +166,7 @@ def raceProblem(numberOfracers):
     winner = namesList[finalResultPair[0] - 1]
     loser = namesList[finalResultPair[1] - 1]
 
-    questionText = "By how many meters will " + winner + " beat " + loser + " in a " + str(raceDistances[raceCount - 1]) + "-meter race?"
+    questionText = "By how many meters will " + winner + " beat " + loser + " in a " + str(raceDistances[races - 1]) + "-meter race?"
     print(questionText)
 
     finalWinDistance = round(finalWinDistance)

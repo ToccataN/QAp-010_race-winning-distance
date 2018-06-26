@@ -2,7 +2,7 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 
-import F1_mainScript as mainScript
+import a001_mainScript as a001
 import json
 
 app = Flask(__name__)
@@ -14,20 +14,16 @@ CORS(app)
 
 def get_question():
 
-    # Set number of runners
+    # Determine which problem is being called
     pid = request.args.get('pid')
 
-    if pid is None:
-      numberOfracers = 2
-    else:
-      numberOfracers = 4
-
-    echoback = mainScript.raceProblem(numberOfracers)
-
+    if pid == 'a001':
+        races = request.args.get('races')
+        lanes = request.args.get('lanes')
+        country = request.args.get('country')
+        echoback = a001.raceProblem(races, lanes, country)
 
     returnString = json.dumps(echoback)
-
-
     return returnString
 
 if __name__ == '__main__':

@@ -1,9 +1,10 @@
 import json
-import F1_mainScript as mainScript
+import a001_mainScript as a001
 
+races = 3
+lanes = 2
+country = 'DK'
 
-numberOfracers = 4
-
-echoback = mainScript.raceProblem(numberOfracers)
+echoback = a001.raceProblem(races, lanes, country)
 print(echoback)
 # returnString = json.dumps(echoback)
