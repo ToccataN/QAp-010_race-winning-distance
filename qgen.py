@@ -33,7 +33,8 @@ def get_question():
     if pid == 't001':
         number = int(request.args.get('number'))
         echoBack = t001.enterNumber(number)
-
+        
+    echoback = echoBack
     returnString = json.dumps(echoBack)
     return returnString
 
