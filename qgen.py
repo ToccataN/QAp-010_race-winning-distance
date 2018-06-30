@@ -32,6 +32,8 @@ def get_question():
 
     if pid == 't001':
         number = int(request.args.get('number'))
+        if number is None:
+            number = '999'
         apiReturn = t001.enterNumber(number)
         
     returnString = json.dumps(apiReturn)
