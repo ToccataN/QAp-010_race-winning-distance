@@ -13,8 +13,6 @@ def raceProblem(races, lanes, country):
 # Danish girls: Trine, Astrid, Rikke, Silja, Ingeborg, Alberte, Luna, Freya, Mathilde, Signe, Amalie, Milla, Ella
 # Danish boys: Frederik, Rasmus, Magnus, Ulrich, Andreas, Asger, Bertram, Poul, Henrik, Niklas, Gustav, Mads, Christian, Mikkel, Nicolai, Emil, Thanush, Sigurd, Witsel, Thaifred
 
-
-
     # Maximum of six names
     # Logic of problem presumes runners always run same speed in each race
     # Logic works currently for pairings only (lanes = 2)
@@ -173,6 +171,8 @@ def raceProblem(races, lanes, country):
     answerText = "Answer: " + winner + " will win by " + str(round(finalWinDistance)) + " meters.  (Rounded to nearest meter)"
     print(answerText)
 
-    echoBack = chad.buildEchoback(informationText, questionText, round(finalWinDistance))
+    instructionText = "However fast each person may be, assume he/she runs at the same speed in all races, no matter the distance, and that his/her speed is constant from start to finish.  Round your answer to the nearest meter -- you're probably going to want to use a calculator."
+
+    echoBack = chad.buildEchoback(informationText, questionText, round(finalWinDistance), instructionText)
 
     return echoBack
