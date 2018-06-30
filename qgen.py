@@ -18,7 +18,7 @@ def get_question():
     # Determine which problem is being called
     pid = request.args.get('pid')
     if pid is None:
-        pid = 'a001'
+        pid = 't001'
 
     if pid == 'a001':
         races = int(request.args.get('races'))

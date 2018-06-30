@@ -8,7 +8,7 @@ country = 'DK'
 
 number = 8
 
-echoback = a001.raceProblem(races, lanes, country)
-# echoback = t001.enterNumber(number)
-print(echoback)
-# returnString = json.dumps(echoback)
+# echoBack = a001.raceProblem(races, lanes, country)
+echoBack = t001.enterNumber(number)
+print(echoBack)
+# returnString = json.dumps(echoBack)
