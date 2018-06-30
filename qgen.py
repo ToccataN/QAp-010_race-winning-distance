@@ -28,14 +28,13 @@ def get_question():
         if races is None: races = 4
         if lanes != 2: lanes = 2
         if country is None: country = 'DK'
-        echoBack = a001.raceProblem(races, lanes, country)
+        apiReturn = a001.raceProblem(races, lanes, country)
 
     if pid == 't001':
         number = int(request.args.get('number'))
-        echoBack = t001.enterNumber(number)
+        apiReturn = t001.enterNumber(number)
         
-    echoback = echoBack
-    returnString = json.dumps(echoBack)
+    returnString = json.dumps(apiReturn)
     return returnString
 
 if __name__ == '__main__':
