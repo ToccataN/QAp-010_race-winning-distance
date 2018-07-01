@@ -7,7 +7,7 @@ from random import randint
 
 def priceAnnuity(country):
 
-    years = randint(10, 30)
+    years = randint(10, 40)
 
     namesList = ['Astrid', 'Christian', 'Freya', 'Ingeborg', 'Mads', 'Poul']
     namePick = randint(1, len(namesList))
@@ -42,8 +42,19 @@ def priceAnnuity(country):
     questionText = "What is the maximum price your cousin should pay for this annuity?"
     instructionText = "Enter your answer, rounded to the nearest " + currency + " in the box provided"
 
+    # Calculate answer
+    pvFactor = 1.0
+    discountRate = initialDiscount / 100
+    price = 0
+    for n in range(1, years + 1):
+        
+        pvFactor = pvFactor / (1 + discountRate)
+        price = price + pvFactor * amount
 
-    answer = 99
+        discountRate = discountRate + bpIncrease / 100 / 100
+        print(n, discountRate, pvFactor, price)
+
+    answer = round(price)
     echoBack = chad.buildEchoback(informationText, questionText, answer, instructionText)
 
     return echoBack
