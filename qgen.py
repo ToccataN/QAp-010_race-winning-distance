@@ -38,10 +38,8 @@ def get_question():
         apiReturn = a001.raceProblem(races, lanes, country)
 
     elif pid == 'f001':
-        number = int(request.args.get('number'))
-        if number is None:
-            number = '999'
-        apiReturn = f001.enterNumber(number)
+        country = int(request.args.get('country'))
+        apiReturn = f001.priceAnnuity(country)
 
     returnString = json.dumps(apiReturn)
     return returnString
