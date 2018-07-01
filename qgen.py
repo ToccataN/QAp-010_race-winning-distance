@@ -2,8 +2,9 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 
-import a001_mainScript as a001
-import t001_mainScript as t001
+import a001_main as a001
+import f001_main as f001
+import t001_main as t001
 import json
 
 app = Flask(__name__)
@@ -20,7 +21,13 @@ def get_question():
     if pid is None:
         pid = 't001'
 
-    if pid == 'a001':
+    if pid == 't001':
+        number = int(request.args.get('number'))
+        if number is None:
+            number = '999'
+        apiReturn = t001.enterNumber(number)
+   
+    elif pid == 'a001':
         races = int(request.args.get('races'))
         lanes = int(request.args.get('lanes'))
         country = request.args.get('country')
@@ -30,12 +37,12 @@ def get_question():
         if country is None: country = 'DK'
         apiReturn = a001.raceProblem(races, lanes, country)
 
-    if pid == 't001':
+    elif pid == 'f001':
         number = int(request.args.get('number'))
         if number is None:
             number = '999'
-        apiReturn = t001.enterNumber(number)
-        
+        apiReturn = f001.enterNumber(number)
+
     returnString = json.dumps(apiReturn)
     return returnString
 
