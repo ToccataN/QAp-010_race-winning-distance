@@ -38,7 +38,7 @@ def get_question():
         apiReturn = a001.raceProblem(races, lanes, country)
 
     elif pid == 'f001':
-        country = int(request.args.get('country'))
+        country = request.args.get('country')
         apiReturn = f001.priceAnnuity(country)
 
     returnString = json.dumps(apiReturn)

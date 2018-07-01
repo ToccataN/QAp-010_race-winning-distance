@@ -13,6 +13,7 @@ def priceAnnuity(country):
     namePick = randint(1, len(namesList))
     person = namesList[namePick - 1]
 
+    # Information first paragraph
     cityList = ['Copenhagen', 'Aarhus', 'Odense', 'Aalborg', 'Esbjerg', 'Randers', 'Kolding', 'Horsens', 'Vejle', 'Roskilde', 'Herning', 'Hørsholm']
     cityPick = randint(1, len(cityList))
     city = cityList[cityPick -1]
@@ -24,11 +25,17 @@ def priceAnnuity(country):
     informationText1b = "It promises to pay " + str(amount) + " " + currency + " on each annual anniversary of the purchase date for " + str(years) + " years."
     informationText1 = informationText1a + informationText1b
     
+    # Information second paragraph
+
+
     informationText2a = person + " has separately  determined that the risk rate on this annuity varies over time.  "
     informationText2b = "For the first year, your cousin believes the discount rate that should be applied to the cash flows is [8.00%] p.a.  "
     informationText2c = "This rate increases by [20] bps [0.20%] p.a. each year afterwards."  
     informationText2 = informationText2a + informationText2b + informationText2c
 
+
+
+    # Form up information
     informationText = []
     informationText.append(informationText1)
     informationText.append(informationText2)
