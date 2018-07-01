@@ -2,7 +2,6 @@ import json
 import a001_main as a001
 import f001_main as f001
 import t001_main as t001
-import t001_main
 
 races = int('3')
 lanes = int('2')
