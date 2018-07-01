@@ -26,14 +26,13 @@ def priceAnnuity(country):
     informationText1 = informationText1a + informationText1b
     
     # Information second paragraph
-
+    initialDiscount = randint(100, 1000) / 100
+    bpIncrease = randint(10, 99)
 
     informationText2a = person + " has separately  determined that the risk rate on this annuity varies over time.  "
-    informationText2b = "For the first year, your cousin believes the discount rate that should be applied to the cash flows is [8.00%] p.a.  "
-    informationText2c = "This rate increases by [20] bps [0.20%] p.a. each year afterwards."  
+    informationText2b = "For the first year, your cousin believes the discount rate that should be applied to the cash flows is " + str(initialDiscount) + "% p.a.  "
+    informationText2c = "This rate increases by " + str(bpIncrease) + " bps (" + str(bpIncrease / 100) + "%) each year afterwards."  
     informationText2 = informationText2a + informationText2b + informationText2c
-
-
 
     # Form up information
     informationText = []
