@@ -2,9 +2,10 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 
-import a001_main as a001
-import f001_main as f001
-import t001_main as t001
+import a001
+import a002
+import f001
+import t001
 import json
 
 app = Flask(__name__)
@@ -40,6 +41,9 @@ def get_question():
     elif pid == 'f001':
         country = request.args.get('country')
         apiReturn = f001.priceAnnuity(country)
+
+    elif pid == 'a002':
+        apiReturn = a002.fraction()      
 
     returnString = json.dumps(apiReturn)
     return returnString
