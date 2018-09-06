@@ -36,7 +36,7 @@ def fraction():
     informationText.append(info)
 
     questionText = "What is the fraction?"
-    instructionText = "Enter your answer in format separated by / character, i.e. i/j."
+    instructionText = "Enter your answer in format separated by / character, i.e. numer / denom."
 
     echoBack = chad.buildEchoback(informationText, questionText, answer, instructionText)
 
