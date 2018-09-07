@@ -54,7 +54,7 @@ def priceAnnuity(country):
         discountRate = discountRate + bpIncrease / 100 / 100
         print(n, discountRate, pvFactor, price)
 
-    answer = round(price)
+    answer = (round(price), 'int')
     echoBack = chad.buildEchoback(informationText, questionText, answer, instructionText)
 
     return echoBack

@@ -19,7 +19,8 @@ def fraction():
     numer = numPrime - deltaNum
     delta = denom - numer
     
-    answer = str(numer) + "/" + str(denom)
+    answerVal = str(numer) + "/" + str(denom)
+    answer = (answerVal, 'str')
     
     deltaChangeWord = changeWord(delta, ("less", "more"))
     numChangeWord = changeWord(deltaNum, ("increased", "decreased"))

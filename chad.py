@@ -1,10 +1,10 @@
-def buildEchoback(assumptionText, questionText, answerVal, instructionText):
+def buildEchoback(assumptionText, questionText, answer, instructionText):
 
     echoback = {
         'information' : assumptionText,
         'question' : questionText,
         'instruction' : instructionText,
-        'answer' : answerVal,
+        'answer' : answer,
     }
 
     return echoback
