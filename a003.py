@@ -3,7 +3,9 @@ from random import randint
 from random import shuffle
 from random import choice
 
-def twoModesDistance():
+# Decided to limit this version to very easy 'fill in the blank' in matrix, not example with two equations and two unknowns
+# which I've now set-up in a004
+def twoModesDistanceSimple():
 
     # Set upper limits in random picks for rate and time integers
     upperRate = 50
@@ -50,19 +52,21 @@ def twoModesDistance():
     # and then assumptions provided will be insufficient to answer the question.
     # So this is what brings in the checkThree function on the randomly selecting dimensionList and re-loops until set of 4 dimensions is valid
 
-    # We start by picking the mode (including possibly 'total') from which we will provide two of the three parameters
-    twoParamMode = randint(0, 2)
-    
-    # Then we figure out the mode from which we will select a parameter for the "answer", i.e. the question
-    # We do this by ensuring that we don't pick the answer/question from the mode that we also assigned for two-parameters within assumptions (as that would be 'dumb')
-    ansChoices = [0, 1, 2]
-    ansChoices.remove(twoParamMode)
-    ansParamMode = choice(ansChoices)
-
-    # Two parameters from total, 1 each from modeA and modeB, which means that ansParamModel must be 1 or 2
     validPick = False
     while validPick == False:
-    
+        
+        # We start by picking the mode (including possibly 'total') from which we will provide two of the three parameters
+        # twoParamMode = randint(0, 2)
+        twoParamMode = 0
+
+        # Then we figure out the mode from which we will select a parameter for the "answer", i.e. the question
+        # We do this by ensuring that we don't pick the answer/question from the mode that we also assigned for two-parameters within assumptions (as that would be 'dumb')
+        ansModeChoices = [0, 1, 2]
+        ansModeChoices.remove(twoParamMode)
+        ansParamMode = choice(ansModeChoices)
+
+        # Two parameters from total, 1 each from modeA and modeB, which means that ansParamModel must be 1 or 2    
+
         if twoParamMode == 0:
             # As/if need two parameters from total, then best (for now) not to bring total rate into it (which is a float)
             # Therefore hardwired to provide time and distance only
@@ -75,19 +79,17 @@ def twoModesDistance():
             # Then we need to randomly select the answer parameter (from which we will frame question) from one of four parameters
             # remaining within either of the 'single parameter' modes
             if ansParamMode == 1:
-                ansChoices = modeAList
+                ansChoices = modeAList[:]
                 ansChoices.remove(sing1Param)
             
             else:
-                ansChoices = modeBList
+                ansChoices = modeBList[:]
                 ansChoices.remove(sing2Param)
-
-            ansParam = choice(ansChoices)
 
         # Two parameters from modeA, 1 each from total and modeB, hence ansParamMode 0 or 2
         elif twoParamMode == 1:
             # Pick first two 2tuples from suffled list, which excludes label
-            tupleList = modeAList
+            tupleList = modeAList[:]
             shuffle(tupleList)
             twoParam = tupleList[:2]
         
@@ -97,14 +99,12 @@ def twoModesDistance():
                 ansChoices = totList[1:]
                 ansChoices.remove(sing1Param)
             else:
-                ansChoices = modeBList
+                ansChoices = modeBList[:]
                 ansChoices.remove(sing2Param)
-
-            ansParam = choice(ansChoices)
         
         # Two parameters from modeB, 1 each from total and modeA
         elif twoParamMode == 2:
-            tupleList = modeBList
+            tupleList = modeBList[:]
             shuffle(tupleList)
             twoParam = tupleList[:2]
         
@@ -114,9 +114,12 @@ def twoModesDistance():
                 ansChoices = totList[1:]
                 ansChoices.remove(sing1Param)
             else:
-                ansChoices = modeAList
+                ansChoices = modeAList[:]
                 ansChoices.remove(sing2Param)
-        
+
+        if len(ansChoices) == 0:
+            pass
+        else:
             ansParam = choice(ansChoices)
 
         givenParamDimList = [sing1Param[1], sing2Param[1], twoParam[0][1], twoParam[1][1]]
@@ -138,6 +141,10 @@ def twoModesDistance():
             missingDim = dimList[0]
             if sing1Param[1] == missingDim:
                 validPick = False
+
+        # Prevent the relatively 'tricky' version that ensues when 'rate' picked for both sing1 and sing2
+        if sing1Param[1] == sing2Param[2] == 'rate':
+            validPick = False
 
     info0 = "A " + animal + " travels partly " + modeAlabel + " and partly " + modeBlabel + ".  If the " + animal + " travels:"
     info1a = firstCapital(sing1Param[0]) + " " + sing1Param[4] + " " + str(sing1Param[2]) + " " + sing1Param[3] + ";"

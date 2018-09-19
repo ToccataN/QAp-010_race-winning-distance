@@ -5,6 +5,7 @@ from flask_cors import CORS, cross_origin
 import a001
 import a002
 import a003
+import a003
 import f001
 import t001
 import json
@@ -43,7 +44,10 @@ def get_question():
         apiReturn = a002.fraction()      
 
     elif pid == 'a003':
-        apiReturn = a003.twoModesDistance()
+        apiReturn = a003.twoModesDistanceSimple()
+
+    elif pid == 'a004':
+        apiReturn = a004.twoModesDistanceSimEq()
 
     elif pid == 'f001':
         country = request.args.get('country')

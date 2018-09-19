@@ -2,6 +2,7 @@ import json
 import a001
 import a002
 import a003
+import a004
 import f001
 import t001
 
@@ -15,7 +16,7 @@ number = 8
 
 # echoBack = a001.raceProblem(races, lanes, country)
 # echoBack = a002.fraction()
-echoBack = a003.twoModesDistance()
+echoBack = a003.twoModesDistanceSimple()
 
 # echoBack = f001.priceAnnuity(country)
 
