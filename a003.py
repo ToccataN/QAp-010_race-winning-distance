@@ -19,7 +19,7 @@ def twoModesDistance():
 
     # For mode, structure a bit different, as need to randomly select two that are different.
     # Could go with CHOICE from a popped list, but this seems just as reasonable, pick first two from shuffled list.
-    modes = ['on foot', 'by dog sled', 'in a hot air balloon', 'on a hovercraft', 'on a jeepney', 'by horse', 'on a cable car', 'with a bicycle', 'in a stage coach', 'with a bicycle', 'in a sedan chair', 'on a battleship', 'aboard a felucca', 'strapped to a cruise missile']
+    modes = ['on foot', 'by dog sled', 'in a hot air balloon', 'on a hovercraft', 'on a jeepney', 'by horse', 'on a cable car', 'with a bicycle', 'in a stage coach', 'in a sedan chair', 'on a battleship', 'aboard a felucca', 'strapped to a cruise missile']
     shuffle(modes)
     modeAlabel = modes[0]
     modeBlabel = modes[1]
