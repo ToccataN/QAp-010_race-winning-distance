@@ -120,9 +120,14 @@ def twoModesDistance():
             ansParam = choice(ansChoices)
 
         givenParamDimList = [sing1Param[1], sing2Param[1], twoParam[0][1], twoParam[1][1]]
-        print(givenParamDimList)
+        print(givenParamDimList, "Answer: ", ansParam)
 
         validPick = not checkThree(givenParamDimList)
+        
+        # Also need to check that don't have a 'dumb' question by having answer on dimension where 2 values already given (and not a rate)
+        ansDim = ansParam[1]
+        if countString(ansDim, givenParamDimList) >= 2 and ansDim != 'rate':
+            validPick = False
 
     info0 = "A " + animal + " travels partly " + modeAlabel + " and partly " + modeBlabel + ".  If the " + animal + " travels:"
     info1a = firstCapital(sing1Param[0]) + " " + sing1Param[4] + " " + str(sing1Param[2]) + " " + sing1Param[3] + ";"
@@ -163,3 +168,12 @@ def checkThree(myList):
         atLeastThree = True
 
     return atLeastThree
+
+def countString(myString, myList):
+
+    count = 0
+    for element in myList:
+        if element == myString:
+            count = count + 1
+
+    return count
