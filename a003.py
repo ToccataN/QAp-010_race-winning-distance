@@ -117,10 +117,7 @@ def twoModesDistanceSimple():
                 ansChoices = modeAList[:]
                 ansChoices.remove(sing2Param)
 
-        if len(ansChoices) == 0:
-            pass
-        else:
-            ansParam = choice(ansChoices)
+        ansParam = choice(ansChoices)
 
         givenParamDimList = [sing1Param[1], sing2Param[1], twoParam[0][1], twoParam[1][1]]
         print(givenParamDimList, "Answer: ", ansParam)

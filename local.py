@@ -16,7 +16,8 @@ number = 8
 
 # echoBack = a001.raceProblem(races, lanes, country)
 # echoBack = a002.fraction()
-echoBack = a003.twoModesDistanceSimple()
+# echoBack = a003.twoModesDistanceSimple()
+echoBack = a004.twoModesDistanceSimEq()
 
 # echoBack = f001.priceAnnuity(country)
 
