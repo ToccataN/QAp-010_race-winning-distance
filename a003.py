@@ -9,9 +9,9 @@ def twoModesDistance():
     upperRate = 50
     upperTime = 30
     
-    animal = choice(['man', 'woman', 'frog', 'gopher'])
-    distUnit = choice(['mile', 'meter', 'yard', 'light-year', 'micron'])
-    timeUnit = choice(['second', 'minute', 'hour'])
+    animal = choice(['man', 'woman', 'frog', 'gopher', 'penguin', 'giraffe', 'panda', 'polar bear', 'meerkat', 'gorilla', 'lemur', 'zebra'])
+    distUnit = choice(['mile', 'meter', 'yard', 'light-year', 'micron', 'kilometer', 'league', 'nautical mile'])
+    timeUnit = choice(['second', 'minute', 'month', 'day', 'week', 'fortnight', 'hour'])
     
     rateUnit = distUnit + " per " + timeUnit
     distUnit = distUnit + 's'
@@ -19,7 +19,7 @@ def twoModesDistance():
 
     # For mode, structure a bit different, as need to randomly select two that are different.
     # Could go with CHOICE from a popped list, but this seems just as reasonable, pick first two from shuffled list.
-    modes = ['on foot', 'with a bicycle', 'in a stage coach', 'with a bicycle', 'in a sedan chair', 'on a battleship', 'strapped to a cruise missile']
+    modes = ['on foot', 'by dog sled', 'in a hot air balloon', 'on a hovercraft', 'on a jeepney', 'by horse', 'on a cable car', 'with a bicycle', 'in a stage coach', 'with a bicycle', 'in a sedan chair', 'on a battleship', 'aboard a felucca', 'strapped to a cruise missile']
     shuffle(modes)
     modeAlabel = modes[0]
     modeBlabel = modes[1]
