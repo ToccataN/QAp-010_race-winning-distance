@@ -129,6 +129,16 @@ def twoModesDistance():
         if countString(ansDim, givenParamDimList) >= 2 and ansDim != 'rate':
             validPick = False
 
+        # Also, we can't have the 'missing' dimensiono on the twoParam mode match the dimension chosen for each of sing1 and sing2 (unless rate)
+        # But only test this if the current set up is otherwise OK, i.e. validPick == True
+        if sing1Param[1] == sing2Param[2] and sing1Param != 'rate' and validPick:
+            dimList = ['rate', 'time', 'distance']
+            dimList.remove(twoParam[0][1])
+            dimList.remove(twoParam[1][1])
+            missingDim = dimList[0]
+            if sing1Param[1] == missingDim:
+                validPick = False
+
     info0 = "A " + animal + " travels partly " + modeAlabel + " and partly " + modeBlabel + ".  If the " + animal + " travels:"
     info1a = firstCapital(sing1Param[0]) + " " + sing1Param[4] + " " + str(sing1Param[2]) + " " + sing1Param[3] + ";"
     info1b = firstCapital(sing2Param[0]) + " " + sing2Param[4] + " " + str(sing2Param[2]) + " " + sing2Param[3] + "; and"
