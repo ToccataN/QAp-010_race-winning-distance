@@ -1,5 +1,5 @@
 import json
-import a001, a002, a003, a004, a005, a006
+import a001, a002, a003, a004, a005, a006, a007
 
 import f001
 import t001
@@ -17,7 +17,8 @@ number = 8
 # echoBack = a003.twoModesDistanceSimple()
 # echoBack = a004.twoModesDistanceSimEq()
 # echoBack = a005.findNumber()
-echoBack = a006.ratioProblem(4)
+# echoBack = a006.ratioProblem(4)
+echoBack = a007.twoPeople()
 # echoBack = f001.priceAnnuity(country)
 
 print(echoBack)
