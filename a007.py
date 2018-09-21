@@ -1,7 +1,5 @@
 import chad
 from random import randint
-from random import shuffle
-from random import choice
 
 def twoPeople():
 
@@ -36,15 +34,14 @@ def twoPeople():
     informationText = []
     info0a = "The average age of " + people[0] + " and " + people[1] + " is " + str(int(average)) + ".  "
     info0b = "The ratio of their ages (" + people[0] + " : " + people[1] + ") is " + ratString + "."
-    informationText.append(info0a + info0b)
+    info = info0a + info0b
+    informationText.append(info)
     
-    questionText = "What is the " + people[answerPick] + "'s age?"
+    questionText = "What is " + people[answerPick] + "'s age?"
     instructionText = "Enter your answer in the box provided."
     echoBack = chad.buildEchoback(informationText, questionText, answer, instructionText)
 
     return echoBack
-
-
 
 def motherDaughter():
 
