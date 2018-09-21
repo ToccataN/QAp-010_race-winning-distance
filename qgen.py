@@ -50,7 +50,9 @@ def get_question():
         apiReturn = a005.findNumber()
 
     elif pid == 'a006':
-        apiReturn = a006.ratioProblem()
+        numberPeople = int(request.args.get('people'))
+        if numberPeople is None: numberPeople = 4
+        apiReturn = a006.ratioProblem(numberPeople)
 
     elif pid == 'f001':
         country = request.args.get('country')

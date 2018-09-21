@@ -3,9 +3,8 @@ from random import randint
 from random import shuffle
 from random import choice
 
-def ratioProblem():
+def ratioProblem(numberRenters):
 
-    numberRenters = 4
     renterList = ['Alexia', 'Baptiste', 'Claire', 'Dorian', 'Emilie', 'Florent']
     renterList = renterList[:numberRenters]
 

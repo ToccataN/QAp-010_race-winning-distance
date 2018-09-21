@@ -17,7 +17,7 @@ number = 8
 # echoBack = a003.twoModesDistanceSimple()
 # echoBack = a004.twoModesDistanceSimEq()
 # echoBack = a005.findNumber()
-echoBack = a006.ratioProblem()
+echoBack = a006.ratioProblem(4)
 # echoBack = f001.priceAnnuity(country)
 
 print(echoBack)
