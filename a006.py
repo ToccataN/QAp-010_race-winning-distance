@@ -6,7 +6,7 @@ from random import choice
 def ratioProblem():
 
     numberRenters = 4
-    renterList = ['A', 'B', 'C', 'D', 'E', 'F']
+    renterList = ['Alexia', 'Baptiste', 'Claire', 'Dorian', 'Emilie', 'Florent']
     renterList = renterList[:numberRenters]
 
     keepLooping = True
@@ -52,7 +52,7 @@ def ratioProblem():
     answer = (answerDict[targetRenter], 'str')
 
     informationText = []
-    informationText.append("A number of people are sharing rent, where you are given what they pay in a number of ratios:")
+    informationText.append(str(numberRenters) + " people are sharing rent.  You only know what each pay's as a set of ratios:")
     for index in range(numberRatios):
         ratioLine = ratioValList[index][0] + "'s rent to " + ratioValList[index][1] + "'s is in the ratio " + ratioValList[index][2]
         informationText.append(ratioLine)
