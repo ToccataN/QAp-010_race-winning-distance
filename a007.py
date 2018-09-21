@@ -5,6 +5,49 @@ from random import choice
 
 def twoPeople():
 
+    people = ['Lars', 'Billy Jo']
+    badAges = True
+    while badAges == True:
+
+        badAges = False
+        second = randint(5, 80)
+        ratioNum = randint(3, 21)
+        ratioDen = randint(1, 12)
+
+        ratioVal = ratioNum / ratioDen
+        first = ratioVal * second
+        totalAges = first + second
+        average = totalAges / 2
+        
+        # Just to ensure we have appropriate set-up
+        if first == second: badAges = True
+        if first % ratioDen != 0: badAges = True
+        if max(first, second) > 95: badAges = True
+        if totalAges % 2 != 0: badAges = True
+        
+        print(first, second, " badAges = ", badAges)
+
+    ratString = str(ratioNum) + ":" + str(ratioDen)
+    ages = [int(first), second]
+    answerPick = randint(0, 1)
+
+    answer = ( ages[answerPick], 'int')
+
+    informationText = []
+    info0a = "The average age of " + people[0] + " and " + people[1] + " is " + str(int(average)) + ".  "
+    info0b = "The ratio of their ages (" + people[0] + " : " + people[1] + ") is " + ratString + "."
+    informationText.append(info0a + info0b)
+    
+    questionText = "What is the " + people[answerPick] + "'s age?"
+    instructionText = "Enter your answer in the box provided."
+    echoBack = chad.buildEchoback(informationText, questionText, answer, instructionText)
+
+    return echoBack
+
+
+
+def motherDaughter():
+
     people = ['mother', 'daughter']
     badAges = True
     while badAges == True:
