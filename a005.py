@@ -66,4 +66,3 @@ def findNumber():
     echoBack = chad.buildEchoback(informationText, questionText, answer, instructionText)
 
     return echoBack
-
